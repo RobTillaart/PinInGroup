@@ -49,25 +49,34 @@ unittest_teardown()
 }
 
 
-unittest(test_all)
+unittest(test_constructor)
 {
   fprintf(stderr, "VERSION: %s\n", PININGROUP_LIB_VERSION);
 
   PinInGroup PIG;
-  uint8_t ar[8] = {2, 3, 4, 5, 6, 7, 4, 4};
-
   assertEqual(0, PIG.size());
   assertEqual(16, PIG.free());
-  assertFalse(PIG.isInGroup(2));
+  assertEqual(0, PIG.isInGroup(2));
+}
+
+
+unittest(test_isInGroup)
+{
+  PinInGroup PIG;
+  uint8_t ar[8] = {2, 3, 4, 5, 6, 7, 4, 4};
 
   PIG.add(8, ar, INPUT_PULLUP);
   assertEqual(8, PIG.size());
   assertEqual(8, PIG.free());
-  
-  for (int pin = 0; pin < 8; pin++)
-  {
-    fprintf(stderr, "%d\t%d\n", pin, PIG.isInGroup(pin));
-  }
+
+  assertEqual(0, PIG.isInGroup(0));
+  assertEqual(1, PIG.isInGroup(2));
+  assertEqual(1, PIG.isInGroup(3));
+  assertEqual(3, PIG.isInGroup(4));
+  assertEqual(1, PIG.isInGroup(5));
+  assertEqual(1, PIG.isInGroup(6));
+  assertEqual(1, PIG.isInGroup(7));
+  assertEqual(0, PIG.isInGroup(8));
 }
 
 unittest_main()
