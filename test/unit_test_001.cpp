@@ -54,7 +54,7 @@ unittest(test_all)
   fprintf(stderr, "VERSION: %s\n", PININGROUP_LIB_VERSION);
 
   PinInGroup PIG;
-  uint8_t ar[4] = {2, 3, 4, 5, 6, 7, 4, 4};
+  uint8_t ar[8] = {2, 3, 4, 5, 6, 7, 4, 4};
 
   assertEqual(0, PIG.size());
   assertEqual(16, PIG.free());
