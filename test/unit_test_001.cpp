@@ -40,7 +40,6 @@
 #include "PinInGroup.h"
 
 
-
 unittest_setup()
 {
 }
@@ -56,11 +55,11 @@ unittest(test_all)
 
   PinInGroup PIG;
   uint8_t ar[4] = {2, 3, 4, 5, 6, 7, 4, 4};
-  
+
   assertEqual(0, PIG.size());
   assertEqual(16, PIG.free());
   assertFalse(PIG.isInGroup(2));
-  
+
   PIG.add(8, ar, INPUT_PULLUP):
   assertEqual(8, PIG.size());
   assertEqual(8, PIG.free());

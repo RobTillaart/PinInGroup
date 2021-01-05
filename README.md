@@ -32,7 +32,8 @@ Hoewever it is less programming and can give clearer code.
 - **add(size, pinArray, mode)** adds a predefined array of pins to the group. Returns the number of pins added.
 - **add(pin, mode)** adds a single pin to the group. Returns the number of pins added (1 or 0). Mode can be **INPUT**(default) or **INPUT_PULLUP**.
 - **isInGroup(pin)** returns how often a pin is added to a group. Can be more than once.
-- **read(value)** reads a 16 bits unsigned int from max 16 pins. Every bit represents an input value. Note that the bits are in LSB order of the adding.
+- **read()** reads a 16 bits unsigned int from max 16 pins. Every bit represents an input value. Note that the bits are in LSB order of the adding.
+- **read(idx)** idx = 0..size-1. Reads the single pin at idx from the group. Returns 0 or 1 if OK and 0xFFFF when idx >= size.
 - **size()** how many slots are used
 - **free()** how many slots are free
 

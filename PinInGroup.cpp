@@ -79,4 +79,12 @@ uint16_t PinInGroup::read()
   return value;
 }
 
+
+uint16_t PinInGroup::read(uint8_t idx)
+{
+  if (idx >= _size) return 0xFFFF; // sort of error
+
+  return (digitalRead(_pins[idx])) ? 1 : 0;
+}
+
 // --- END OF FILE ---

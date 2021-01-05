@@ -43,6 +43,9 @@ public:
   // read up to 16 pins "simultaneously" in one call.
   uint16_t  read();
 
+  // read specific index.
+  uint16_t  read(uint8_t idx);
+
   uint8_t   size() { return _size; };
 
   // check how many free "slots" there are...
