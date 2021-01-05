@@ -13,7 +13,7 @@
 #include "Arduino.h"
 
 
-#define PININGROUP_LIB_VERSION      (F("0.1.2"))
+#define PININGROUP_LIB_VERSION      (F("0.1.3"))
 
 
 // smaller MAXSIZE will reduce memory footprint with ditto bytes.
