@@ -60,7 +60,7 @@ unittest(test_all)
   assertEqual(16, PIG.free());
   assertFalse(PIG.isInGroup(2));
 
-  PIG.add(8, ar, INPUT_PULLUP):
+  PIG.add(8, ar, INPUT_PULLUP);
   assertEqual(8, PIG.size());
   assertEqual(8, PIG.free());
   
