@@ -19,7 +19,7 @@ That allows one to read a pin e.g. in a burst of 8.
 Another application of adding a pin twice could be reading a pin as first and as last of a group.
 This allows you to check that state of e.g. a parallel bus has not changed during read.
 
-## Performace
+## Performance
 
 The PinInGroup is not more efficient as reading the pins in a loop yourself.
 Hoewever it is less programming and can give clearer code.
