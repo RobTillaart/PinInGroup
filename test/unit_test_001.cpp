@@ -51,7 +51,7 @@ unittest(test_constructor)
 
   PinInGroup PIG;
   assertEqual(0, PIG.size());
-  assertEqual(16, PIG.free());
+  assertEqual(16, PIG.available());
   assertEqual(0, PIG.isInGroup(2));
 }
 
@@ -63,7 +63,7 @@ unittest(test_isInGroup)
 
   PIG.add(8, ar, INPUT_PULLUP);
   assertEqual(8, PIG.size());
-  assertEqual(8, PIG.free());
+  assertEqual(8, PIG.available());
 
   assertEqual(0, PIG.isInGroup(0));
   assertEqual(1, PIG.isInGroup(2));

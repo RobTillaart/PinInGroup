@@ -87,4 +87,22 @@ uint16_t PinInGroup::read(uint8_t idx)
   return (digitalRead(_pins[idx])) ? 1 : 0;
 }
 
+
+uint8_t PinInGroup::getPin(uint8_t idx)
+{
+  if (idx >= _size) return 0xFF;
+  return _pins[idx];
+}
+
+
+uint8_t PinInGroup::getIdx(uint8_t pin)
+{
+  for (uint8_t i = 0; i < _size; i++)
+  {
+    if (_pins[i] == pin) return i;
+  }
+  return 0xFF;
+}
+
+
 // --- END OF FILE ---
