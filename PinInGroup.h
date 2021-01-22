@@ -1,7 +1,7 @@
 #pragma once
 //    FILE: PinInGroup.h
 //  AUTHOR: Rob dot Tillaart at gmail dot com
-// VERSION: 0.1.3
+// VERSION: 0.1.4
 //    DATE: 2017-04-26
 // PURPOSE: PinInGroup library for Arduino
 // HISTORY: See PinInGroup.cpp
@@ -13,7 +13,7 @@
 #include "Arduino.h"
 
 
-#define PININGROUP_LIB_VERSION      (F("0.1.3"))
+#define PININGROUP_LIB_VERSION      (F("0.1.4"))
 
 
 // smaller MAXSIZE will reduce memory footprint with ditto bytes.
@@ -33,7 +33,6 @@ public:
   // adds a predefined array of pin numbers to the PinInGroup
   // sets all to either INPUT (default) or INPUT_PULLUP.
   uint8_t    add(uint8_t sz, uint8_t * ar, uint8_t mode = INPUT);
-
   // adds a single pin to the PinInGroup
   uint8_t    add(uint8_t pin, uint8_t mode = INPUT);
 
@@ -48,8 +47,11 @@ public:
 
   uint8_t   size() { return _size; };
 
-  // check how many free "slots" there are...
-  uint8_t   free() { return PININGROUP_MAXSIZE - _size; };
+  // check how many "slots" are available
+  uint8_t   available() { return PININGROUP_MAXSIZE - _size; };
+
+  uint8_t   getPin(uint8_t idx);
+  uint8_t   getIdx(uint8_t pin);
 
 private:
   uint8_t   _pins[PININGROUP_MAXSIZE];
