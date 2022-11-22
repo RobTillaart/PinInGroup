@@ -75,20 +75,34 @@ See examples.
 
 ## Future
 
-- Optimize the low level reading e.g. reading registers only once.
-  - Hold register and bit info per pin. 
-  - Especially for AVR this could be interesting performance wise.
-- Create an analogPinGroup and a PWMGroup 
-- extend to 32 bits / pins. class hierarchy. 8, 24 ?
+These ideas will be explored when time permits or needs arise.
+
+#### must
+
+- improve documentation
+- move code from .h to .cpp
+
+#### should
+
+- add real live examples
 - Allocate dynamic memory (0.2.0)
   - fragmentation?
   - would be memory efficient.
-- clear() => reset() or clearGroup() ???
+
+
+#### could
+
+- add **uint8_t pinCount(uint8_T pin)**
+- Optimize the low level reading e.g. reading registers only once.
+  - Hold register and bit info per pin. 
+  - Especially for AVR this could be interesting performance wise.
+- Create a PWMGroup
+- Create an analogPinGroup
+  - new class
+- extend to 32 bits / pins. class hierarchy. 8, 24 ?
+- clear() => reset() or clearGroup() ?
 - do we need yield() somewhere?
 - extend unit tests
   - getIndex()
   - getPin()
-
-These ideas will be explored when time permits or needs arise.
-
 
