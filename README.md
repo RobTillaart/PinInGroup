@@ -51,9 +51,12 @@ Returns the number of pins added.
 - **uint8_t add(uint8_t pin, uint8_t mode)** adds a single pin to the group. 
 Returns the number of pins added (1 or 0). 
 Mode can be **INPUT**(default) or **INPUT_PULLUP**.
-- **uint8_t getPin(uint8_t index)** index = 0..15; returns the pin at slot index or 255 (0xFF) when out of range.
-- **uint8_t getIndex(uint8_t pin)** returns the (first) index of the slot with pin number. 255 (0xFF) if not found.
-- **uint8_t isInGroup(uint8_t pin)** returns how often a pin is added to a group. Can be more than once.
+- **uint8_t getPin(uint8_t index)** index = 0..15.
+Returns the pin at slot index or 255 (0xFF) when out of range.
+- **uint8_t getIndex(uint8_t pin)** returns the (first) index of the slot with pin number. 
+Returns 255 (0xFF) if not found.
+- **uint8_t isInGroup(uint8_t pin)** returns how often a pin is added to a group. 
+Can be larger than one, max size of course.
 - **uint8_t size()** how many slots are used.
 - **uint8_t getMaxSize()** how many slots are there in total.
 - **uint8_t available()** how many slots are free.
@@ -61,14 +64,20 @@ Mode can be **INPUT**(default) or **INPUT_PULLUP**.
 
 ### Read
 
-- **uint16_t read()** reads a 16 bits unsigned int from max 16 pins. Every bit represents an input value. 
+- **uint16_t read()** reads a 16 bits unsigned int from max 16 pins. 
+Every bit represents an input value. 
 Note that the bits are in LSB order of the adding.
 - **uint16_t read(uint8_t index)** index = 0 .. size - 1. 
 Reads the single pin at index from the group. 
 Returns 0 or 1 if OK and 0xFFFF when index >= size.
 
 
-# Operation
+#### Error codes
+
+PININGROUP_ERROR_PIN  = 0xFF = 255.
+
+
+## Operation
 
 See examples.
 
@@ -92,7 +101,6 @@ These ideas will be explored when time permits or needs arise.
 
 #### could
 
-- add **uint8_t pinCount(uint8_T pin)**
 - Optimize the low level reading e.g. reading registers only once.
   - Hold register and bit info per pin. 
   - Especially for AVR this could be interesting performance wise.

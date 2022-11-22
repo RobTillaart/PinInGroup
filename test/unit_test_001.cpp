@@ -41,6 +41,7 @@ unittest_setup()
   fprintf(stderr, "PININGROUP_LIB_VERSION: %s\n", (char *) PININGROUP_LIB_VERSION);
 }
 
+
 unittest_teardown()
 {
 }
@@ -93,11 +94,12 @@ unittest(test_getIndex)
   assertEqual(8,  PIG.size());
   assertEqual(8,  PIG.available());
 
-  assertEqual(2,  PIG.getIndex(0));
-  assertEqual(3,  PIG.getIndex(1));
-  assertEqual(4,  PIG.getIndex(2));
+  assertEqual(0xFF,  PIG.getIndex(0));  //  not in group
+  assertEqual(0xFF,  PIG.getIndex(1));
+  assertEqual(0,  PIG.getIndex(2));
+  assertEqual(2,  PIG.getIndex(4));
   assertEqual(4,  PIG.getIndex(6));
-  assertEqual(4,  PIG.getIndex(7));
+  assertEqual(5,  PIG.getIndex(7));
 }
 
 
@@ -110,13 +112,13 @@ unittest(test_getPin)
   assertEqual(8,  PIG.size());
   assertEqual(8,  PIG.available());
 
-  assertEqual(0xFF,  PIG.getPin(0));
-  assertEqual(0xFF,  PIG.getPin(1));
-  assertEqual(0,  PIG.getPin(2));
-  assertEqual(2,  PIG.getPin(4));
+  assertEqual(2,  PIG.getPin(0));
+  assertEqual(3,  PIG.getPin(1));
+  assertEqual(4,  PIG.getPin(2));
+  assertEqual(6,  PIG.getPin(4));
   assertEqual(4,  PIG.getPin(6));
-  assertEqual(5,  PIG.getPin(7));
-
+  assertEqual(4,  PIG.getPin(7));
+  assertEqual(0xFF,  PIG.getPin(8));
 }
 
 
